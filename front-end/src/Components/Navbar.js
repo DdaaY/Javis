@@ -1,29 +1,32 @@
-import { AppBar, Toolbar, Typography } from '@material-ui/core';
 import React from 'react';
-import { makeStyles } from '@material-ui/styles';
-import {RiAncientGateFill} from 'react-icons/ri';
-
-const useStyles = makeStyles(()=> ({
-    typographyStyles : {
-        flex : 1,
-    },
-    AppIcon : {
-        /*flex : 1,*/
-    },
-}));
+import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
 
-    const classes = useStyles();
+    const [click,setClick] = useState(false);
+
+    const handleClick = () => setClick(!click);
 
     return (
-        <AppBar position = "static">
-            <Toolbar>
-                <Typography className = {classes.typographyStyles}>
-                    Javis  
-                </Typography>
-                <RiAncientGateFill className = {classes.AppIcon}/>
-            </Toolbar>
-        </AppBar>
-    );
+        // <>
+        //     <nav>
+        //         <div>
+        //             <Link to = '/'>
+        //                 JAVIS <i className = 'fab fa-accusoft' />
+        //             </Link>
+        //             <div onClick = {handleClick}>
+        //                 <i className = {click ? 'fas fa-times' : 'fas fa-bars'} />
+        //             </div>
+        //             <ul className = {click ? 'nav-menu active' : 'nav-menu'}>
+        //                 <li>
+                            
+        //                 </li>
+        //             </ul>
+        //         </div>
+        //     </nav>
+        // </>
+        <>
+        </>
+    )
 }

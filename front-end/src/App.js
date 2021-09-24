@@ -1,23 +1,70 @@
-import { Container, Grid } from '@material-ui/core';
-import React from 'react';
-import Navbar from './Components/Navbar';
-import Content from './Components/Content';
+import React, { useState } from 'react';
+// import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+// import Navbar from './Components/Navbar';
+import { makeStyles } from '@mui/styles'; 
+import LoginForm from './Components/LoginForm';
 
-export default function App(){
-    return (
-       <Grid container direction = 'column'>
-            <Grid item>
-                <Navbar />
-            </Grid>
-            <Grid item container>
-                <Grid item xs = {0} sm = {4}>
-                    show interfaces
-                </Grid>
-                <Grid item xs = {12} sm = {8} > {/* (#/12) represent the percentage on the screen when it is extra small(xs) or small(sm)*/}
-                    <Content value = {20}/>
-                    content due to interfaces
-                </Grid>
-            </Grid>
-       </Grid>
-    );
+const useStyles = makeStyles(theme => ({
+    container : {
+        position : 'center',
+    },
+}));
+
+
+export default function App (){
+
+    const adminUser = {
+        email : "1596934767@qq.com",
+        password : "12"
+    }
+
+    const [user,setUser] = useState({user : "", email : ""});
+    const [error,setError] = useState("");
+
+    const Login = details => {
+        console.log(details);
+
+        if(details.email == adminUser.email && details.password == adminUser.password){
+            console.log("logged in");
+
+            setUser({
+                name : details.name,
+                email : details.email,
+            });
+
+        }else {
+            console.log("Don't match");
+        }
+    }
+
+    const Logout = () => {
+        setUser({
+            user : "", 
+            email : ""
+        });
+    }
+
+    const classes = useStyles();
+
+    return(
+        // <>
+        //     <Router>
+        //         <Navbar/>
+        //         <Switch>
+        //             <Route path = '/' exact />
+        //         </Switch>
+        //     </Router>
+        // </>
+        <div>
+            {(user.email != "") ? (
+                <div>
+                    <h2>Welcome,<span>{user.name}</span></h2>
+                    <button onClick = {Logout}>Logout</button>
+                </div>
+            ) : (
+                <LoginForm Login = {Login} error = {error}/>
+            )}
+        </div>
+        
+    )
 }
