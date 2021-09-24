@@ -1,0 +1,21 @@
+{
+  "name": "javis",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "react-scripts start",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DdaaY/Javis.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DdaaY/Javis/issues"
+  },
+  "homepage": "https://github.com/DdaaY/Javis#readme"
+}
