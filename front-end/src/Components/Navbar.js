@@ -1,32 +1,25 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
-export default function Navbar() {
-
-    const [click,setClick] = useState(false);
-
-    const handleClick = () => setClick(!click);
-
-    return (
-        // <>
-        //     <nav>
-        //         <div>
-        //             <Link to = '/'>
-        //                 JAVIS <i className = 'fab fa-accusoft' />
-        //             </Link>
-        //             <div onClick = {handleClick}>
-        //                 <i className = {click ? 'fas fa-times' : 'fas fa-bars'} />
-        //             </div>
-        //             <ul className = {click ? 'nav-menu active' : 'nav-menu'}>
-        //                 <li>
-                            
-        //                 </li>
-        //             </ul>
-        //         </div>
-        //     </nav>
-        // </>
-        <>
-        </>
-    )
+export default class Navbar extends Component {
+    render() {
+        return (
+            <nav className = "navbar navbar-dark bg-dark navbar-expand-lg">
+                <Link to='/' className = "navbar-brand">Javis</Link>
+                <div className = "collpase navbar-collapse">
+                    <ul className = "navbar-nav mr-auto">
+                        <li className = "navbar-item">
+                            <Link to='/' className = "nav-link">Exercises</Link>
+                        </li>
+                        <li className = "navbar-item">
+                            <Link to='/create' className = "nav-link">Create Exercise log</Link>
+                        </li>
+                        <li className = "navbar-item">
+                            <Link to='/user' className = "nav-link">Create User</Link>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        );
+    }
 }
